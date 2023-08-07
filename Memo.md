@@ -167,7 +167,23 @@ postにuserのリレーションがある時にnameを表示するようにな�
 
 Networkタブてuserにリクエストが飛んでるのがわかる
 
+### Adding Editing Capabilities
+`ListGusser`だけでなく、`EditGusser`もある
+```tsx
+  <Resource name="posts" list={PostList} edit={EditGuesser}/>
+```
+edit画面を開くと、consoleにgusserがanalyzeした結果が表示される
+
+![スクリーンショット 2023-08-08 0 46 08](https://github.com/tsuzuki-takaaki/test-admin/assets/77610894/cfca2ca9-a1fb-4b16-b6a9-77e523b1ebd8)
+
+↑ に基づいて`PostEdit`を作成する
+```tsx
+  <Resource name="posts" list={PostList} edit={PostEdit} />
+```
+> If you’ve understood the `<List>` component, the `<Edit>` component will be no surprise. It’s responsible for fetching the record, and displaying the page title. It passes the record down to the `<SimpleForm>` component, which is responsible for the form layout, default values, and validation.
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
 - `Nested component by List`: rendering the children
+- `Edit`: Data Fetch
