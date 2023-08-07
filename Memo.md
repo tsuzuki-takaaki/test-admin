@@ -122,6 +122,13 @@ responsiveもできる
 
 ↑ 行ごとで持てる
 
+### Customizing Styles
+> React-admin relies on Material UI, a set of React components modeled after Google’s Material Design Guidelines.
+
+>  All Material UI components (and most react-admin components) support a prop called sx, which allows custom inline styles. Let’s take advantage of the sx prop to remove the underline from the link and add an icon:
+
+`css in js`記法でかく
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
