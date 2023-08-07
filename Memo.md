@@ -113,6 +113,15 @@ responsiveもできる
   - `sortBy`: When used in a List, specifies the actual source to be used for sorting when the user clicks the column header
   - ... 
 
+### Writing A Custom Field
+> In react-admin, fields are just React components. When rendered, they grab the record fetched from the API (e.g. { "id": 2, "name": "Ervin Howell", "website": "anastasia.net", ... })
+
+これ使っていい感じにカスタムできる
+
+> For each row, `<Datagrid>` creates a RecordContext and stores the current record in it. useRecordContext allows to read that record.
+
+↑ 行ごとで持てる
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
