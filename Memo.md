@@ -214,6 +214,8 @@ react-adminがいい感じにoptimizeしてるから
 
 > That’s because react-admin uses optimistic updates. When a user edits a record and hits the “Save” button, the UI shows a confirmation and displays the updated data before sending the update query to server. T
 
+### Customizing The Page Title
+Skip
 
 ### 結論
 - `Resource`: Routing
