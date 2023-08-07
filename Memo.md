@@ -203,6 +203,18 @@ EditとCraeteの違いはidぐらい
 ```
 > Tip: The`<PostEdit>` and the `<PostCreate>` components use almost the same child form, except for the additional id input in `<PostEdit>`. In most cases, the forms for creating and editing a record are a bit different, because most APIs create primary keys server-side. But if the forms are the same, you can share a common form component in `<PostEdit>` and `<PostCreate>`.
 
+### Optimistic Rendering And Undo
+↑ の例では実際にpostされていない => JSONPlaceholder is a read-only API
+
+なのにlistに表示されたのはなぜか？
+
+↓
+
+react-adminがいい感じにoptimizeしてるから
+
+> That’s because react-admin uses optimistic updates. When a user edits a record and hits the “Save” button, the UI shows a confirmation and displays the updated data before sending the update query to server. T
+
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
