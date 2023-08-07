@@ -220,6 +220,22 @@ react-adminがいい感じにoptimizeしてるから
 ### Using a Custom Home Page
 Skip
 
+### Adding a Login Page
+> React-admin makes no assumption about your authentication strategy (basic auth, OAuth, custom route, etc.), but gives you the ability to add the auth logic at the right place - using the authProvider object.
+
+react-adminが直接authを提供してるわけではないが、それを実現できるものはある
+以下は`localStorage`に保存する例(実際にやったらアウト)
+`authProvider`を用意して、それをrootである`Admin`にauthProviderとして指定する
+```tsx
+  import { Dashboard } from './Dashboard';
+  import { authProvider } from './authProvider';
+
+  export const App = () => (
+    <Admin authProvider={authProvider} dataProvider={dataProvider} dashboard={Dashboard} >
+        // ...
+    </Admin>
+  );
+```
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
