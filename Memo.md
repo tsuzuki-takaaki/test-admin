@@ -182,6 +182,27 @@ edit画面を開くと、consoleにgusserがanalyzeした結果が表示され�
 ```
 > If you’ve understood the `<List>` component, the `<Edit>` component will be no surprise. It’s responsible for fetching the record, and displaying the page title. It passes the record down to the `<SimpleForm>` component, which is responsible for the form layout, default values, and validation.
 
+### Adding Creation Capabilities
+fetchだけでなく、post, put, patchできるようにする
+EditとCraeteの違いはidぐらい
+
+```tsx
+  export const PostCreate = () => (
+    <Create>
+      <SimpleForm>
+        <ReferenceInput source="userId" reference="users" />
+        <TextInput source="title" />
+        <TextInput source="body" multiline rows={5} />
+      </SimpleForm>
+    </Create>
+  );
+```
+- 呼ぶ側はcreate optionを指定するだけ
+```tsx
+  <Resource name="posts" list={PostList} edit={PostEdit} create={PostCreate}/>
+```
+> Tip: The`<PostEdit>` and the `<PostCreate>` components use almost the same child form, except for the additional id input in `<PostEdit>`. In most cases, the forms for creating and editing a record are a bit different, because most APIs create primary keys server-side. But if the forms are the same, you can share a common form component in `<PostEdit>` and `<PostCreate>`.
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
