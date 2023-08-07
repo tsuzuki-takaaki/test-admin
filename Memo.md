@@ -33,3 +33,68 @@
 ![スクリーンショット 2023-08-07 22 57 52](https://github.com/tsuzuki-takaaki/test-admin/assets/77610894/ed9d92c0-3653-4664-a511-56ccb1727c77)
 
 ↑ これを元にcomponentを構築してみる
+
+※ これschemaあったら嬉しいかもなと思った
+```
+  % curl https://jsonplaceholder.typicode.com/users/2
+```
+```
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "Shanna@melissa.tv",
+    "address": {
+      "street": "Victor Plains",
+      "suite": "Suite 879",
+      "city": "Wisokyburgh",
+      "zipcode": "90566-7771",
+      "geo": {
+        "lat": "-43.9509",
+        "lng": "-34.4618"
+      }
+    },
+    "phone": "010-692-6593 x09125",
+    "website": "anastasia.net",
+    "company": {
+      "name": "Deckow-Crist",
+      "catchPhrase": "Proactive didactic contingency",
+      "bs": "synergize scalable supply-chains"
+    }
+  }
+```
+### Composing Components
+```tsx
+  export const UserList = () => (
+    <List>
+      <Datagrid rowClick="edit">
+        <TextField source="id" />
+        ...
+      </Datagrid>
+    </List>
+  );
+```
+- `List`component
+  - reads the query parameters from the URL
+  - calls the API based on these parameters
+  - puts the result in a **React context**
+  -  It also builds a set of callbacks allowing child components to modify the list filters, pagination, and sorting.
+  - めちゃくちゃいろんなことができる
+
+```tsx
+  <List>
+    {/* children */}
+  </List>
+```
+↑ この構造を意識するのがいいらしい
+
+- 複雑になるのが嫌なので、`<List>`はdata fetchの責任のみを持つようにする
+- => renderingはその子コンポーネントに委託するようにする
+- ↑ の例で言うと、`<Datagrid>`に委託してる
+- `<Datagrid>`以外にも`SimpleList`って言うのもある
+  - これはたくさんあってUIをカスタムできる
+
+### 結論
+- `Resource`: Routing
+- `List`: Data Fetch
+- `Nested component by List`: rendering the children
