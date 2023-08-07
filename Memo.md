@@ -102,6 +102,17 @@ responsiveもできる
 ### Selecting Columns
 > Each Field component maps a different field in the API response, specified by the source prop.
 
+### Using Field Types
+- Fieldのオプションは結構ある
+  - https://marmelab.com/react-admin/Fields.html
+- options
+  - `source`: Name of the property to display
+  - `label`: Used as a Datagrid column header or in a Show layout
+  - `record`: Object containing the properties to display, to override the record from the current RecordContext
+  - `sortable`: When used in a List, should the list be sortable using the source attribute? Setting it to false disables the click handler on the column header.
+  - `sortBy`: When used in a List, specifies the actual source to be used for sorting when the user clicks the column header
+  - ... 
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
