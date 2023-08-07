@@ -94,6 +94,11 @@
 - `<Datagrid>`以外にも`SimpleList`って言うのもある
   - これはたくさんあってUIをカスタムできる
 
+### Writing A Custom List Component
+responsiveもできる
+`useMediaQuery`とかを使えばよしなにやってくれる
+※ 割愛
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
