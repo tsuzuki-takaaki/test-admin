@@ -99,6 +99,9 @@ responsiveもできる
 `useMediaQuery`とかを使えばよしなにやってくれる
 ※ 割愛
 
+### Selecting Columns
+> Each Field component maps a different field in the API response, specified by the source prop.
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
