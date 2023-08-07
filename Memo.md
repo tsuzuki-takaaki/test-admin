@@ -24,3 +24,12 @@
   - headerとかを触るとクエリパラメータが変わる
   - => nameでエンドポイントを指定して、クエリパラメータに関してはよしなにやってくれる
 - `Mapping API Endpoints With Resources` <- これが全て
+
+### Writing A Page Component
+↑ の例では`ListGuesser`を使ったが、これはproduction用ではない(簡単に構築したい時用)
+=> `ListGuesser`をreplaceする必要がある
+`ListGuesser`は天才なので、consoleに予想されるcomponentの構造を出力している
+
+![スクリーンショット 2023-08-07 22 57 52](https://github.com/tsuzuki-takaaki/test-admin/assets/77610894/ed9d92c0-3653-4664-a511-56ccb1727c77)
+
+↑ これを元にcomponentを構築してみる
