@@ -129,6 +129,44 @@ responsiveもできる
 
 `css in js`記法でかく
 
+### Handling Relationships
+relationもいけちゃう
+> React-admin knows how to take advantage of these foreign keys to fetch references.
+
+`ListGusser`を使ってみてみる
+
+![スクリーンショット 2023-08-08 0 18 22](https://github.com/tsuzuki-takaaki/test-admin/assets/77610894/699305d6-b807-41e8-a03b-dae52b0bc631)
+
+↑に基づいてpost用のコンポーネントを作ってみる
+
+```tsx
+  import { Datagrid, List, ReferenceField, TextField } from "react-admin";
+
+  export const PostList = () => (
+    <List>
+      <Datagrid rowClick="edit">
+        <ReferenceField source="userId" reference="users" />
+        <TextField source="id" />
+        <TextField source="title" />
+        <TextField source="body" />
+      </Datagrid>
+    </List>
+  );
+```
+```tsx
+  const App = () => (
+      <Admin dataProvider={dataProvider}>
+          <Resource name="posts" list={PostList} />
+  -       <Resource name="users" list={UserList} />
+  +       <Resource name="users" list={UserList} recordRepresentation="name" />
+      </Admin>
+  );
+```
+postにuserのリレーションがある時にnameを表示するようになる
+> The `<ReferenceField>` component fetches the reference data, creates a RecordContext with the result, and renders the record representation (or its children).
+
+Networkタブてuserにリクエストが飛んでるのがわかる
+
 ### 結論
 - `Resource`: Routing
 - `List`: Data Fetch
