@@ -9,7 +9,11 @@ import { PostCreate } from "./PostCreate";
 export const App = () => {
   return (
     <Admin authProvider={authProvider} dataProvider={dataProvider}>
-      <Resource name="users" list={UserList} recordRepresentation="name" />
+      <Resource
+        name="users"
+        list={UserList}
+        recordRepresentation="name"
+      />
       <Resource
         name="posts"
         list={PostList}
