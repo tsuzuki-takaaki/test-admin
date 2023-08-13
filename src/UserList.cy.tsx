@@ -1,10 +1,12 @@
-import { AdminContext, GetListResult, Resource, testDataProvider } from 'react-admin'
+import { Admin, GetListResult, Resource, testDataProvider } from 'react-admin'
 import { UserList } from './UserList'
+import { UserCreate } from './UserCreate'
+import { UserEdit } from './UserEdit'
 
 describe('<UserList />', () => {
   it('hello world', () => {
     cy.mount(
-      <AdminContext
+      <Admin
         dataProvider={testDataProvider({
           getList: () => 
             Promise.resolve<GetListResult>({
@@ -18,8 +20,8 @@ describe('<UserList />', () => {
             })
         })}
       >
-        <Resource name="users" list={UserList} />
-      </AdminContext>
+        <Resource name="users" list={UserList} create={UserCreate} edit={UserEdit} />
+      </Admin>
     )
     cy.get('td.column-id > span').should('have.text', '1')
     cy.get('td.column-name > span').should('have.text', 'hello world')
