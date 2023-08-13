@@ -21,5 +21,7 @@ describe('<UserList />', () => {
         <Resource name="users" list={UserList} />
       </AdminContext>
     )
+    cy.get('td.column-id > span').should('have.text', '1')
+    cy.get('td.column-name > span').should('have.text', 'hello world')
   })
 })
