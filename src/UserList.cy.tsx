@@ -4,7 +4,7 @@ import { UserCreate } from './UserCreate'
 import { UserEdit } from './UserEdit'
 
 describe('<UserList />', () => {
-  it('hello world', () => {
+  it('displays id and name', () => {
     cy.mount(
       <Admin
         dataProvider={testDataProvider({
