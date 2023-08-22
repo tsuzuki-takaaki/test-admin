@@ -1,7 +1,8 @@
 import { Edit, SimpleForm, TextInput } from "react-admin"
 
-export const UserEdit = () => (
-  <Edit>
+// fix props
+export const UserEdit = (props: any) => (
+  <Edit id={props.id}>
     <SimpleForm>
       <TextInput source="id" />
       <TextInput source="name" />
