@@ -3,7 +3,7 @@ import { mount, MountReturn } from 'cypress/react18'
 import { DataProvider, LegacyDataProvider } from 'react-admin'
 
 interface MountWithAdminContextParams {
-  dataProvider: DataProvider | LegacyDataProvider,
+  dataProvider?: DataProvider | LegacyDataProvider,
   resource: string,
   component: JSX.Element 
 }
