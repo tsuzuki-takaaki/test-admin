@@ -1,5 +1,4 @@
-import { GetOneResult, testDataProvider } from "react-admin"
-import { UserShow } from "./UserShow."
+import { GetOneResult, Show, SimpleShowLayout, testDataProvider, TextField } from "react-admin"
 
 const testData = {
   "id": 1,
@@ -35,7 +34,13 @@ describe('<UserShow />', () => {
           })
         }),
         resource: 'users',
-        component: <UserShow id={1}/>
+        component: 
+          <Show id={1}>
+            <SimpleShowLayout>
+              <TextField source="id" />
+              <TextField source="name" /> 
+            </SimpleShowLayout>
+          </Show>
       }
     )
   })

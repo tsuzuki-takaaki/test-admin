@@ -1,9 +1,8 @@
 import { Show, SimpleShowLayout, TextField } from "react-admin"
 
-export const UserShow = (props: any) => {
+export const UserShow = () => {
   return (
-    // this maybe not working and anti pattern
-    <Show id={props.id}>
+    <Show>
       <SimpleShowLayout>
         <TextField source="id" />
         <TextField source="name" /> 
