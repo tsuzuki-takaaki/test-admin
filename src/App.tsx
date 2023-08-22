@@ -7,6 +7,7 @@ import { PostEdit } from "./PostEdit";
 import { PostCreate } from "./PostCreate";
 import { UserEdit } from "./UserEdit";
 import { UserCreate } from "./UserCreate";
+import { UserShow } from "./UserShow.";
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
         edit={UserEdit}
         list={UserList}
         recordRepresentation="name"
+        show={UserShow}
       />
       <Resource
         name="posts"

@@ -1,7 +1,5 @@
 // in src/users.tsx
-import { useMediaQuery, Theme } from "@mui/material";
-import { List, SimpleList, Datagrid, TextField, EmailField } from "react-admin";
-import { MyUrlField } from "./CustomField/MyUrlField";
+import { List, SimpleList, Datagrid, TextField } from "react-admin";
 
 export const UserList = () => {
   const isSmall = null //useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
