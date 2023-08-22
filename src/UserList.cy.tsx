@@ -1,7 +1,5 @@
-import { Admin, AdminContext, GetListResult, Resource, ResourceContextProvider, testDataProvider } from 'react-admin'
+import { GetListResult, testDataProvider } from 'react-admin'
 import { UserList } from './UserList'
-import { UserCreate } from './UserCreate'
-import { UserEdit } from './UserEdit'
 
 const testData = [
   {
@@ -31,20 +29,15 @@ const testData = [
 
 describe('<UserList />', () => {
   beforeEach(() => {
-    cy.mount(
-      <AdminContext
-        dataProvider={testDataProvider({
-          getList: () => 
-            Promise.resolve<GetListResult>({
-              data: testData,
-              total: 1
-            })
-        })}
-      >
-        <ResourceContextProvider value='users'>
-          <UserList />
-        </ResourceContextProvider>
-      </AdminContext>
+    cy.mountWithAdminContext(
+      testDataProvider({
+        getList: () => Promise.resolve<GetListResult>({
+          data: testData,
+          total: 1,
+        })
+      }),
+      'users',
+      <UserList />
     )
   })
 
