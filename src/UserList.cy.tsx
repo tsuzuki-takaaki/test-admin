@@ -29,16 +29,16 @@ const testData = [
 
 describe('<UserList />', () => {
   beforeEach(() => {
-    cy.mountWithAdminContext(
-      testDataProvider({
+    cy.mountWithAdminContext({
+      dataProvider: testDataProvider({
         getList: () => Promise.resolve<GetListResult>({
           data: testData,
           total: 1,
         })
       }),
-      'users',
-      <UserList />
-    )
+      resource: 'users',
+      component: <UserList />
+    })
   })
 
   context('when visit /users', () => {

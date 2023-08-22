@@ -2,11 +2,13 @@ import './commands'
 import { mount, MountReturn } from 'cypress/react18'
 import { DataProvider, LegacyDataProvider } from 'react-admin'
 
-type MountWithAdminContext = (
+interface MountWithAdminContextParams {
   dataProvider: DataProvider | LegacyDataProvider,
   resource: string,
-  component: JSX.Element
-) => Cypress.Chainable<MountReturn>
+  component: JSX.Element 
+}
+
+type MountWithAdminContext = (params: MountWithAdminContextParams) => Cypress.Chainable<MountReturn>
 
 declare global {
   namespace Cypress {
